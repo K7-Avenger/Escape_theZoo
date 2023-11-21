@@ -1,5 +1,5 @@
 # Define the directory you want to list items from
-$directoryPath = "C:\Users\Cybr442\Desktop\Malx-main\theZoo\theZoo-master\malware\Binaries"
+$directoryPath = "C:\Users\Cybr442\Desktop\Malx\theZoo\malware\Binaries"
 $zipPassword = "infected"
 $7ZipPath = "C:\Program Files\7-Zip\7z.exe"
 
