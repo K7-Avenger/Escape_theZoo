@@ -23,7 +23,7 @@ if (Test-Path -Path $directoryPath -PathType Container) {
         $jtems = Get-ChildItem -Path $dirs_to_open
         
         foreach($jtem in $jtems){
-            $exten = [IO.Path]::GetExtension($jtem)
+#            $exten = [IO.Path]::GetExtension($jtem)
             if ($exten -eq ".zip" ){
                 Write-Host $dirs_to_open
                 Write-Host $jtem.FullName
