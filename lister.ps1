@@ -1,14 +1,15 @@
 # Define the directory you want to list items from
 $directoryPath = "C:\Users\Cybr442\Desktop\Malx-main\theZoo\theZoo-master\malware\Binaries"
 $zipPassword = "infected"
+$7ZipPath = "C:\Program Files\7-Zip\7z.exe"
 
 # Load the System.IO.Compression.FileSystem assembly
-Add-Type -TypeDefinition @"
-    using System.IO.Compression;
-"@
+#Add-Type -TypeDefinition @"
+#    using System.IO.Compression;
+#"@
 
 # Initialize an empty list to store the items
-$itemsList = @()
+#$itemsList = @()
 
 # Check if the specified directory exists
 if (Test-Path -Path $directoryPath -PathType Container) {
@@ -27,11 +28,7 @@ if (Test-Path -Path $directoryPath -PathType Container) {
                 Write-Host $dirs_to_open
                 Write-Host $jtem.FullName
                 try {
-                    [System.IO.Compression.ZipFile]::ExtractToDirectory(
-                        $jtem.FullName,
-                        $dirs_to_open,
-                        $zipPassword
-                    )
+                    Start-Process -FilePath $7ZipPath -ArgumentList "e -o$dirs_to_open -p$zipPassword -y $($jtem.FullName)"
                     Write-Host "Successfully extracted the ZIP file."
                 } catch {
                     Write-Host "Failed to extract the ZIP file. Error: $($_.Exception.Message)"
