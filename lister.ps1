@@ -28,7 +28,7 @@ if (Test-Path -Path $directoryPath -PathType Container) {
                 Write-Host $dirs_to_open
                 Write-Host $jtem.FullName
                 try {
-                    Start-Process -FilePath $7ZipPath -ArgumentList "e -o$dirs_to_open -p$zipPassword -y $($jtem.FullName)"
+                    Start-Process -FilePath $7ZipPath -ArgumentList "e -o$dirs_to_open\$jtem\ -p$zipPassword -y $($jtem.FullName)"
                     Write-Host "Successfully extracted the ZIP file."
                 } catch {
                     Write-Host "Failed to extract the ZIP file. Error: $($_.Exception.Message)"
