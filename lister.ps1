@@ -2,6 +2,8 @@
 $directoryPath = "C:\Users\Cybr442\Desktop\Malx\theZoo\malware\Binaries"
 $zipPassword = "infected"
 $7ZipPath = "C:\Program Files\7-Zip\7z.exe"
+$extractedSampleDir = "C:\Users\CYBR442\Desktop\ExtractedSamples\"
+
 
 # Load the System.IO.Compression.FileSystem assembly
 #Add-Type -TypeDefinition @"
@@ -29,6 +31,7 @@ if (Test-Path -Path $directoryPath -PathType Container) {
                 Write-Host $jtem.FullName
                 try {
                     Start-Process -FilePath $7ZipPath -ArgumentList "e -o$($dirs_to_open)\ -p$zipPassword -y $($jtem.FullName)"
+                    #Start-Process -FilePath $7ZipPath -ArgumentList "e -o$($extractedSampleDir)\ -p$zipPassword -y $($jtem.FullName)"
                     Write-Host "Successfully extracted the ZIP file."
                 } catch {
                     Write-Host "Failed to extract the ZIP file. Error: $($_.Exception.Message)"
