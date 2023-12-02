@@ -4,15 +4,6 @@ $zipPassword = "infected"
 $7ZipPath = "C:\Program Files\7-Zip\7z.exe"
 $extractedSampleDir = "C:\Users\CYBR442\Desktop\ExtractedSamples\"
 
-
-# Load the System.IO.Compression.FileSystem assembly
-#Add-Type -TypeDefinition @"
-#    using System.IO.Compression;
-#"@
-
-# Initialize an empty list to store the items
-#$itemsList = @()
-
 # Check if the specified directory exists
 if (Test-Path -Path $directoryPath -PathType Container) {
     # Get all items (files and directories) in the specified directory
